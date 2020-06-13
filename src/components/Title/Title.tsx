@@ -1,4 +1,7 @@
-import React from 'react';
-import { Title as Container } from './Title.styles';
+import React, { ReactNode } from 'react';
+import { Container } from './Title.styles';
 
-export const Title = () => <Container>Title</Container>;
+type Props = {
+  children: ReactNode;
+};
+export const Title = ({ children }: Props) => <Container>{children}</Container>;
