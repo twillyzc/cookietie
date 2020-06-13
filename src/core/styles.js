@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.6;
-  color: #222;
-  background: #eee;
+  color: #777;
+  background-color: rgb(239, 239, 239);
   min-height: 100vh;
 }`;
