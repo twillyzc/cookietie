@@ -1,31 +1,16 @@
-import { RECIPES_GET_DATA_SUCCESS } from 'store/actions/recipes.actions';
-import { RecipesState, recipesSuccessAction } from 'store/types/recipes.types';
+import { RECIPES_DATA_SUCCESS } from 'store/actions/recipes.actions';
 
-const defaultState: RecipesState = {
-  results: [],
-  totalResults: 0,
-  baseUri: '',
+const initialState = {
+  items: [],
 };
 
-const setRecipes = (
-  state = defaultState,
-  { results, totalResults, baseUri }: RecipesState
-) => {
-  return {
-    ...state,
-    items: [...results],
-    totalResults,
-    baseUri,
-  };
-};
-
-export const recipesReducer = (
-  state: RecipesState,
-  action: recipesSuccessAction
-) => {
+export const recipesReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case RECIPES_GET_DATA_SUCCESS:
-      return setRecipes(state, action.recipes);
+    case RECIPES_DATA_SUCCESS:
+      return {
+        ...state,
+        items: action.payload,
+      };
     default:
       return state;
   }
