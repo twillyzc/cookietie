@@ -6,7 +6,7 @@ import { RecipesRequestAction } from 'store/types/recipes.types';
 function* fetchRecipes(action: RecipesRequestAction) {
   const recipes = yield call(
     fetchUrl,
-    `${API_URL}/recipes/search?query=${action.payload.inputValue}&count=10&apiKey=${API_KEY}`
+    `${API_URL}/recipes/search?query=${action.payload.inputValue}&number=100&apiKey=${API_KEY}`
   );
 
   yield put(recipesSuccess(recipes));

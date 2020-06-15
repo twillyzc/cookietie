@@ -3,14 +3,10 @@ import { Header } from 'components/Header/Header';
 import { Helmet } from 'react-helmet';
 import { Layout, Content } from 'components/Layout/Layout';
 import { Title } from 'components/Title/Title';
-import { useDispatch } from 'react-redux';
-import { recipesRequest } from 'store/actions/recipes.actions';
+
+import { Main } from 'components/Main/Main';
 
 export const Home = () => {
-  const dispatch = useDispatch();
-  const getRecipes = () => {
-    dispatch(recipesRequest('pizza'));
-  };
   return (
     <>
       <Helmet>
@@ -22,7 +18,7 @@ export const Home = () => {
           <h1>Title</h1>
         </Title>
         <Content>
-          <button onClick={getRecipes}>aaaaaaa</button>
+          <Main />
         </Content>
       </Layout>
     </>
