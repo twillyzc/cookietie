@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Header } from 'components/Header/Header';
 import { Helmet } from 'react-helmet';
 import { Layout, Content } from 'components/Layout/Layout';
@@ -12,7 +12,7 @@ export const Home = () => {
     dispatch(recipesRequest('pizza'));
   };
   return (
-    <Fragment>
+    <>
       <Helmet>
         <title>Home</title>
       </Helmet>
@@ -25,6 +25,6 @@ export const Home = () => {
           <button onClick={getRecipes}>aaaaaaa</button>
         </Content>
       </Layout>
-    </Fragment>
+    </>
   );
 };

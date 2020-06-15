@@ -1,16 +1,15 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { API_KEY, API_URL, fetchUrl } from 'core/api';
-import {
-  RECIPES_DATA_SUCCESS,
-  RECIPES_DATA_REQUEST,
-} from 'store/actions/recipes.actions';
+import { RECIPES_DATA_REQUEST, recipesSuccess } from 'store/actions/recipes.actions';
+import { RecipesRequestAction } from 'store/types/recipes.types';
 
-function* fetchRecipes() {
+function* fetchRecipes(action: RecipesRequestAction) {
   const recipes = yield call(
     fetchUrl,
-    `${API_URL}/recipes/search?query=${'pizza'}&count=10&apiKey=${API_KEY}`
+    `${API_URL}/recipes/search?query=${action.payload.inputValue}&count=10&apiKey=${API_KEY}`
   );
-  yield put({ type: RECIPES_DATA_SUCCESS, payload: recipes.results });
+
+  yield put(recipesSuccess(recipes));
 }
 
 export function* recipesWatcher() {
