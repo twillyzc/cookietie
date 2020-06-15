@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header } from 'components/Header/Header';
 import { Helmet } from 'react-helmet';
+
+import { Header } from 'components/Header/Header';
 import { Layout, Content } from 'components/Layout/Layout';
 import { Title } from 'components/Title/Title';
-
 import { Main } from 'components/Main/Main';
 
 export const Home = () => {
