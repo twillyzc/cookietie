@@ -7,7 +7,7 @@ import { recipesRequest } from 'store/actions/recipes.actions';
 export const Main = () => {
   const dispatch = useDispatch();
 
-  const getRecipes = async () => await dispatch(recipesRequest('pasta'));
+  const getRecipes = async () => await dispatch(recipesRequest('tomato'));
 
   return (
     <>

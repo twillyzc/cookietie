@@ -9,12 +9,14 @@ import {
 const defaultState: RecipesState = {
   items: [],
   totalResults: 0,
+  baseUri: '',
 };
 
 const setRecipes = (state: RecipesState, action: RecipesSuccessAction) => ({
   ...state,
   items: action.payload.results,
   totalResults: action.payload.totalResults,
+  baseUri: action.payload.baseUri,
 });
 
 const setMoreRecipes = (state: RecipesState, action: RecipesMoreSuccessAction) => ({

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -9,10 +9,25 @@ import { recipesMoreRequest } from 'store/actions/recipes.actions';
 import { RecipesState } from 'store/types/recipes.types';
 import { RootState } from 'store/reducers';
 
+import { Image } from './RecipesList.styles';
+
+const ListItem = memo(({ data, style, index }: any) => {
+  const { baseUri, items, isItemLoaded } = data;
+  if (!isItemLoaded(index)) {
+    return <div style={style}>Loading...</div>;
+  }
+  return (
+    <div style={style}>
+      <Image src={`${baseUri + items[index].id}-90x90.jpg`} alt="" />
+      {items[index].title}
+    </div>
+  );
+});
+
 export const RecipesList = () => {
   const dispatch = useDispatch();
 
-  const { items, totalResults }: RecipesState = useSelector((state: RootState) => state.recipes);
+  const { items, totalResults, baseUri }: RecipesState = useSelector((state: RootState) => state.recipes);
 
   const listRef = useRef<any>(null);
 
@@ -26,7 +41,7 @@ export const RecipesList = () => {
     async () => {
       setIsLoading((prevState) => !prevState);
       try {
-        await dispatch(recipesMoreRequest('pasta', items.length));
+        await dispatch(recipesMoreRequest('tomato', items.length));
       } catch (e) {
         console.log(e);
       } finally {
@@ -42,13 +57,6 @@ export const RecipesList = () => {
   const itemCount = hasMoreItems ? items.length + 1 : items.length;
 
   const isItemLoaded = (index: number) => !hasMoreItems || index < items.length;
-
-  const Item = ({ style, index }: any) => {
-    if (!isItemLoaded(index)) {
-      return <div style={style}>Loading...</div>;
-    }
-    return <div style={style}>{items[index].title}</div>;
-  };
 
   if (!items.length && !isLoading) return <>Search something</>;
 
@@ -72,8 +80,9 @@ export const RecipesList = () => {
                 itemSize={65}
                 width={width}
                 style={{ height: '100% !important' }}
+                itemData={{ baseUri, items, isItemLoaded }}
               >
-                {Item}
+                {ListItem}
               </List>
             )}
           </InfiniteLoader>

@@ -26,6 +26,7 @@ export interface RecipesFetchSuccess {
 export interface RecipesState {
   items: RecipeResult[];
   totalResults: number;
+  baseUri: string;
 }
 
 export interface RecipesRequestAction {
