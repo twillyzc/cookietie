@@ -16,11 +16,15 @@ export const recipesRequest = (inputValue: string): RecipesRequestAction => ({
   payload: {
     inputValue,
   },
+  meta: {
+    thunk: true,
+  },
 });
 
-export const recipesSuccess = (payload: RecipesFetchSuccess): RecipesSuccessAction => ({
+export const recipesSuccess = (payload: RecipesFetchSuccess, meta: any): RecipesSuccessAction => ({
   type: RECIPES_DATA_SUCCESS,
   payload,
+  meta,
 });
 
 export const recipesMoreRequest = (inputValue: string, offset: number): RecipesMoreRequestAction => ({
@@ -29,9 +33,13 @@ export const recipesMoreRequest = (inputValue: string, offset: number): RecipesM
     inputValue,
     offset,
   },
+  meta: {
+    thunk: true,
+  },
 });
 
-export const recipesMoreSuccess = (payload: RecipesFetchSuccess): RecipesMoreSuccessAction => ({
+export const recipesMoreSuccess = (payload: RecipesFetchSuccess, meta: any): RecipesMoreSuccessAction => ({
   type: RECIPES_MORE_DATA_SUCCESS,
   payload,
+  meta,
 });

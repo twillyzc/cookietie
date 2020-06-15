@@ -25,6 +25,7 @@ export interface RecipesFetchSuccess {
 
 export interface RecipesState {
   items: RecipeResult[];
+  totalResults: number;
 }
 
 export interface RecipesRequestAction {
@@ -32,11 +33,15 @@ export interface RecipesRequestAction {
   payload: {
     inputValue: string;
   };
+  meta: {
+    thunk: true;
+  };
 }
 
 export interface RecipesSuccessAction {
   type: typeof RECIPES_DATA_SUCCESS;
   payload: RecipesFetchSuccess;
+  meta: any;
 }
 
 export interface RecipesMoreRequestAction {
@@ -45,11 +50,15 @@ export interface RecipesMoreRequestAction {
     inputValue: string;
     offset: number;
   };
+  meta: {
+    thunk: true;
+  };
 }
 
 export interface RecipesMoreSuccessAction {
   type: typeof RECIPES_MORE_DATA_SUCCESS;
   payload: RecipesFetchSuccess;
+  meta: any;
 }
 
 export type RecipesActionTypes =
