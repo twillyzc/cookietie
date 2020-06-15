@@ -1,4 +1,9 @@
-import { RECIPES_DATA_REQUEST, RECIPES_DATA_SUCCESS } from 'store/actions/recipes.actions';
+import {
+  RECIPES_DATA_REQUEST,
+  RECIPES_DATA_SUCCESS,
+  RECIPES_MORE_DATA_SUCCESS,
+  RECIPES_MORE_DATA_REQUEST,
+} from 'store/actions/recipes.actions';
 
 export interface RecipeResult {
   id: number;
@@ -34,4 +39,21 @@ export interface RecipesSuccessAction {
   payload: RecipesFetchSuccess;
 }
 
-export type RecipesActionTypes = RecipesSuccessAction | RecipesRequestAction;
+export interface RecipesMoreRequestAction {
+  type: typeof RECIPES_MORE_DATA_REQUEST;
+  payload: {
+    inputValue: string;
+    offset: number;
+  };
+}
+
+export interface RecipesMoreSuccessAction {
+  type: typeof RECIPES_MORE_DATA_SUCCESS;
+  payload: RecipesFetchSuccess;
+}
+
+export type RecipesActionTypes =
+  | RecipesRequestAction
+  | RecipesSuccessAction
+  | RecipesMoreRequestAction
+  | RecipesMoreSuccessAction;
