@@ -41,7 +41,7 @@ export const RecipesList = () => {
     async () => {
       setIsLoading((prevState) => !prevState);
       try {
-        await dispatch(recipesMoreRequest('tomato', items.length));
+        await dispatch(recipesMoreRequest('soup', items.length));
       } catch (e) {
         console.log(e);
       } finally {

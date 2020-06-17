@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 
@@ -10,8 +10,17 @@ import { recipesRequest } from 'store/actions/recipes.actions';
 
 export const Home = () => {
   const dispatch = useDispatch();
+  const [title, setTitle] = useState('title');
 
-  const getRecipes = async () => await dispatch(recipesRequest('tomato'));
+  const getRecipes = async () => {
+    try {
+      await dispatch(recipesRequest('soup'));
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setTitle('soup');
+    }
+  };
 
   return (
     <>
@@ -21,7 +30,7 @@ export const Home = () => {
       <Layout>
         <Header />
         <Title>
-          <h1>Title</h1>
+          <h1>{title}</h1>
         </Title>
         <Content>
           <>

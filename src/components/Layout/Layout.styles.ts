@@ -9,6 +9,12 @@ export const Container = styled.main`
     'header'
     'title'
     'content';
+  @media only screen and (min-width: 600px) {
+    grid-template-areas:
+      'header header header header'
+      '. title title .'
+      '. content content .';
+  }
 `;
 
 export const Wrapper = styled.article`
