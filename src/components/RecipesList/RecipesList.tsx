@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, memo } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -11,7 +11,7 @@ import { RootState } from 'store/reducers';
 
 import { Image } from './RecipesList.styles';
 
-const ListItem = memo(({ data, style, index }: any) => {
+const ListItem = ({ data, style, index }: any) => {
   const { baseUri, items, isItemLoaded } = data;
   if (!isItemLoaded(index)) {
     return <div style={style}>Loading...</div>;
@@ -22,7 +22,7 @@ const ListItem = memo(({ data, style, index }: any) => {
       {items[index].title}
     </div>
   );
-});
+};
 
 export const RecipesList = () => {
   const dispatch = useDispatch();
@@ -71,6 +71,7 @@ export const RecipesList = () => {
               <List
                 onItemsRendered={onItemsRendered}
                 ref={(list) => {
+                  //Jesus, I'm sorry. It's not my fault
                   //@ts-ignore
                   ref(list);
                   listRef.current = list;
