@@ -14,15 +14,18 @@ const useQuery = () => new URLSearchParams(useLocation().search);
 export const Search = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('title');
+  const [isLoading, setIsLoading] = useState(false);
 
   const query = useQuery().get('query');
 
   const getRecipes = async (query: string) => {
     try {
+      setIsLoading(true);
       await dispatch(recipesRequest(query));
     } catch (e) {
       console.log(e);
     } finally {
+      setIsLoading(false);
       setTitle(query);
     }
   };
@@ -43,9 +46,7 @@ export const Search = () => {
         <Title>
           <h1>{title}</h1>
         </Title>
-        <Content>
-          <RecipesList />
-        </Content>
+        <Content>{isLoading ? 'Loading...' : <RecipesList />}</Content>
         <Footer />
       </Layout>
     </>
