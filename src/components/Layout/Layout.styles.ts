@@ -8,12 +8,14 @@ export const Container = styled.main`
   grid-template-areas:
     'header'
     'title'
-    'content';
+    'content'
+    'footer';
   @media only screen and (min-width: 600px) {
     grid-template-areas:
       'header header header header'
       '. title title .'
-      '. content content .';
+      '. content content .'
+      '. . . footer';
   }
 `;
 

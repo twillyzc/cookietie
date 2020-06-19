@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 
 import { Header } from 'components/Header/Header';
+import { Footer } from 'components/Footer/Footer';
 import { Layout, Content } from 'components/Layout/Layout';
 import { Title } from 'components/Title/Title';
 import { RecipesList } from 'components/RecipesList/RecipesList';
@@ -36,6 +37,7 @@ export const Home = () => {
           <button onClick={getRecipes}>Get recipes</button>
           <RecipesList />
         </Content>
+        <Footer />
       </Layout>
     </>
   );
