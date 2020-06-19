@@ -1,6 +1,10 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { RecipesRequestAction, RecipesMoreRequestAction } from 'store/types/recipes.types';
+import {
+  RecipesRequestAction,
+  RecipesMoreRequestAction,
+  RecipesFetchSuccess,
+} from 'store/types/recipes.types';
 import { API_KEY, API_URL, fetchUrl } from 'core/api';
 import {
   RECIPES_DATA_REQUEST,
@@ -10,7 +14,7 @@ import {
 } from 'store/actions/recipes.actions';
 
 function* fetchRecipes(action: RecipesRequestAction) {
-  const recipes = yield call(
+  const recipes: RecipesFetchSuccess = yield call(
     fetchUrl,
     `${API_URL}/recipes/search?query=${action.payload.inputValue}&number=100&apiKey=${API_KEY}`
   );
@@ -19,7 +23,7 @@ function* fetchRecipes(action: RecipesRequestAction) {
 }
 
 function* fetchMoreRecipes(action: RecipesMoreRequestAction) {
-  const recipes = yield call(
+  const recipes: RecipesFetchSuccess = yield call(
     fetchUrl,
     `${API_URL}/recipes/search?query=${action.payload.inputValue}&number=100&offset=${action.payload.offset}&apiKey=${API_KEY}`
   );
@@ -27,7 +31,7 @@ function* fetchMoreRecipes(action: RecipesMoreRequestAction) {
   yield put(recipesMoreSuccess(recipes, action.meta));
 }
 
-export function* recipesWatcher() {
+export function* recipesWatcher(): Generator {
   yield takeLatest(RECIPES_MORE_DATA_REQUEST, fetchMoreRecipes);
   yield takeLatest(RECIPES_DATA_REQUEST, fetchRecipes);
 }

@@ -5,6 +5,7 @@ import {
   RecipesActionTypes,
   RecipesMoreSuccessAction,
 } from 'store/types/recipes.types';
+import { Reducer } from 'react';
 
 const defaultState: RecipesState = {
   items: [],
@@ -25,7 +26,10 @@ const setMoreRecipes = (state: RecipesState, action: RecipesMoreSuccessAction) =
   totalResults: action.payload.totalResults,
 });
 
-export const recipesReducer = (state = defaultState, action: RecipesActionTypes) => {
+export const recipesReducer: Reducer<RecipesState, RecipesActionTypes> = (
+  state = defaultState,
+  action: RecipesActionTypes
+) => {
   switch (action.type) {
     case RECIPES_DATA_SUCCESS:
       return setRecipes(state, action);

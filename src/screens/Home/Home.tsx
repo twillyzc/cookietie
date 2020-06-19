@@ -33,10 +33,8 @@ export const Home = () => {
           <h1>{title}</h1>
         </Title>
         <Content>
-          <>
-            <button onClick={getRecipes}>Get recipes</button>
-            <RecipesList />
-          </>
+          <button onClick={getRecipes}>Get recipes</button>
+          <RecipesList />
         </Content>
       </Layout>
     </>
