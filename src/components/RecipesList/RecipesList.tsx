@@ -8,21 +8,7 @@ import { WindowScroller } from 'react-virtualized';
 import { recipesMoreRequest } from 'store/actions/recipes.actions';
 import { RecipesState } from 'store/types/recipes.types';
 import { RootState } from 'store/reducers';
-
-import { Image } from './RecipesList.styles';
-
-const ListItem = ({ data, style, index }: any) => {
-  const { baseUri, items, isItemLoaded } = data;
-  if (!isItemLoaded(index)) {
-    return <div style={style}>Loading...</div>;
-  }
-  return (
-    <div style={style}>
-      <Image src={`${baseUri + items[index].id}-90x90.jpg`} alt="" />
-      {items[index].title}
-    </div>
-  );
-};
+import { ListItem } from 'components/ListItem/ListItem';
 
 export const RecipesList = () => {
   const dispatch = useDispatch();
