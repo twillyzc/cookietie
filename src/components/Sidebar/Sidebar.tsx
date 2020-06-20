@@ -4,7 +4,7 @@ import { Container, Wrapper } from './Sidebar.styles';
 export const Sidebar: React.FC = () => {
   return (
     <Container>
-      <Wrapper>aaaa</Wrapper>
+      <Wrapper>Sidebar</Wrapper>
     </Container>
   );
 };

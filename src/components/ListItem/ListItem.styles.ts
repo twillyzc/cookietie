@@ -1,19 +1,27 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+
+export const ImageContainer = styled.div`
+  width: 100%;
+  height: 250px;
+  background-image: ${(props) => `url(${props.color})`};
+`;
+
 export const Image = styled.img`
-  width: 30px;
-  height: auto;
-  border-radius: 50%;
-  border: 2px solid white;
+  object-fit: cover;
+  height: 25rem;
+  width: 100%;
+  filter: brightness(80%);
 `;
 
 export const Container = styled.div`
   padding: 0.5rem;
 `;
 
-export const Wrapper = styled(Link)`
+export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
 `;
