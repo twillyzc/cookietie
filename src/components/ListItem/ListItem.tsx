@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from './ListItem.styles';
+import { Image, Container, Wrapper } from './ListItem.styles';
 
 export const ListItem: React.FC = ({ data, style, index }: any) => {
   const { baseUri, items, isItemLoaded } = data;
@@ -9,9 +9,11 @@ export const ListItem: React.FC = ({ data, style, index }: any) => {
   }
 
   return (
-    <div style={style}>
-      <Image src={`${baseUri + items[index].id}-90x90.jpg`} alt="" />
-      {items[index].title}
-    </div>
+    <Container style={style}>
+      <Wrapper to="/">
+        <Image src={`${baseUri + items[index].id}-90x90.jpg`} alt="" />
+        {items[index].title}
+      </Wrapper>
+    </Container>
   );
 };

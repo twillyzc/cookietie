@@ -10,17 +10,23 @@ export const Container = styled.main`
     'title'
     'content'
     'footer';
+
   @media only screen and (min-width: 600px) {
     grid-template-areas:
       'header header header header'
       '. title title .'
       '. content content .'
       '. . . footer';
+    box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.05);
   }
 `;
 
 export const Wrapper = styled.article`
   background: #f1f3f4;
   grid-area: content;
-  padding: 1.5rem;
+  padding: 0.5rem;
+
+  @media only screen and (min-width: 600px) {
+    padding: 1.5rem;
+  }
 `;

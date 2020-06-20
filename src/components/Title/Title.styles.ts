@@ -2,6 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: title;
-  background-color: #f9f9f9;
+  background-color: ${(props) => props.theme.colors.light};
   padding: 1.5rem;
 `;
