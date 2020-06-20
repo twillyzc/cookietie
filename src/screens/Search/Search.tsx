@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
-export const Search = () => {
+export const Search: React.FC = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('title');
   const [isLoading, setIsLoading] = useState(false);

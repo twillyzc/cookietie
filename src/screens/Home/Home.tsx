@@ -6,7 +6,7 @@ import { Footer } from 'components/Footer/Footer';
 import { Layout, Content } from 'components/Layout/Layout';
 import { Title } from 'components/Title/Title';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <>
       <Helmet>

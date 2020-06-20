@@ -1,11 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
+import { API_KEY, API_URL, fetchUrl } from 'core/api';
 import {
   RecipesRequestAction,
   RecipesMoreRequestAction,
   RecipesFetchSuccess,
 } from 'store/types/recipes.types';
-import { API_KEY, API_URL, fetchUrl } from 'core/api';
 import {
   RECIPES_DATA_REQUEST,
   recipesSuccess,

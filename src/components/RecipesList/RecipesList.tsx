@@ -10,7 +10,7 @@ import { RecipesState } from 'store/types/recipes.types';
 import { RootState } from 'store/reducers';
 import { ListItem } from 'components/ListItem/ListItem';
 
-export const RecipesList = () => {
+export const RecipesList: React.FC = () => {
   const dispatch = useDispatch();
 
   const { items, totalResults, baseUri }: RecipesState = useSelector((state: RootState) => state.recipes);
@@ -57,7 +57,6 @@ export const RecipesList = () => {
               <List
                 onItemsRendered={onItemsRendered}
                 ref={(list) => {
-                  //Jesus, I'm sorry. It's not my fault
                   //@ts-ignore
                   ref(list);
                   listRef.current = list;

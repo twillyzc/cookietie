@@ -6,4 +6,4 @@ type Props = {
   children: ReactNode;
 };
 
-export const Title = ({ children }: Props) => <Container>{children}</Container>;
+export const Title: React.FC<Props> = ({ children }) => <Container>{children}</Container>;
