@@ -21,13 +21,19 @@ export const recipesRequest = (inputValue: string): RecipesRequestAction => ({
   },
 });
 
-export const recipesSuccess = (payload: RecipesFetchSuccess, meta: any): RecipesSuccessAction => ({
+export const recipesSuccess = (
+  payload: RecipesFetchSuccess,
+  meta: any
+): RecipesSuccessAction => ({
   type: RECIPES_DATA_SUCCESS,
   payload,
   meta,
 });
 
-export const recipesMoreRequest = (inputValue: string, offset: number): RecipesMoreRequestAction => ({
+export const recipesMoreRequest = (
+  inputValue: string,
+  offset: number
+): RecipesMoreRequestAction => ({
   type: RECIPES_MORE_DATA_REQUEST,
   payload: {
     inputValue,
@@ -38,7 +44,10 @@ export const recipesMoreRequest = (inputValue: string, offset: number): RecipesM
   },
 });
 
-export const recipesMoreSuccess = (payload: RecipesFetchSuccess, meta: any): RecipesMoreSuccessAction => ({
+export const recipesMoreSuccess = (
+  payload: RecipesFetchSuccess,
+  meta: any
+): RecipesMoreSuccessAction => ({
   type: RECIPES_MORE_DATA_SUCCESS,
   payload,
   meta,

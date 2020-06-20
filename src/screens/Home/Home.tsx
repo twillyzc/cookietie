@@ -1,10 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Header } from 'components/Header/Header';
-import { Footer } from 'components/Footer/Footer';
-import { Layout, Content } from 'components/Layout/Layout';
-import { Title } from 'components/Title/Title';
+import { Header } from 'components';
+import { Footer } from 'components';
+import { Layout, Content } from 'components';
+import { Title } from 'components';
 
 export const Home: React.FC = () => {
   return (

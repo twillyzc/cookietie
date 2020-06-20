@@ -1,11 +1,15 @@
-import { RECIPES_DATA_SUCCESS, RECIPES_MORE_DATA_SUCCESS } from 'store/actions/recipes.actions';
+import { Reducer } from 'react';
+
+import {
+  RECIPES_DATA_SUCCESS,
+  RECIPES_MORE_DATA_SUCCESS,
+} from 'store/actions/recipes.actions';
 import {
   RecipesSuccessAction,
   RecipesState,
   RecipesActionTypes,
   RecipesMoreSuccessAction,
 } from 'store/types/recipes.types';
-import { Reducer } from 'react';
 
 const defaultState: RecipesState = {
   items: [],
@@ -20,7 +24,10 @@ const setRecipes = (state: RecipesState, action: RecipesSuccessAction) => ({
   baseUri: action.payload.baseUri,
 });
 
-const setMoreRecipes = (state: RecipesState, action: RecipesMoreSuccessAction) => ({
+const setMoreRecipes = (
+  state: RecipesState,
+  action: RecipesMoreSuccessAction
+) => ({
   ...state,
   items: [...state.items, ...action.payload.results],
   totalResults: action.payload.totalResults,

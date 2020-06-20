@@ -8,12 +8,14 @@ import { WindowScroller } from 'react-virtualized';
 import { recipesMoreRequest } from 'store/actions/recipes.actions';
 import { RecipesState } from 'store/types/recipes.types';
 import { RootState } from 'store/reducers';
-import { ListItem } from 'components/ListItem/ListItem';
+import { ListItem } from 'components';
 
 export const RecipesList: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { items, totalResults, baseUri }: RecipesState = useSelector((state: RootState) => state.recipes);
+  const { items, totalResults, baseUri }: RecipesState = useSelector(
+    (state: RootState) => state.recipes
+  );
 
   const listRef = useRef<any>(null);
 
@@ -21,7 +23,7 @@ export const RecipesList: React.FC = () => {
     listRef.current?.scrollTo(scrollTop);
   }, []);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const loadMoreItems = useCallback(
     async () => {
@@ -52,7 +54,11 @@ export const RecipesList: React.FC = () => {
 
       <AutoSizer disableHeight>
         {({ width }) => (
-          <InfiniteLoader isItemLoaded={isItemLoaded} itemCount={itemCount} loadMoreItems={loadMoreItems}>
+          <InfiniteLoader
+            isItemLoaded={isItemLoaded}
+            itemCount={itemCount}
+            loadMoreItems={loadMoreItems}
+          >
             {({ onItemsRendered, ref }) => (
               <List
                 onItemsRendered={onItemsRendered}

@@ -6,6 +6,10 @@ type Props = {
   children: ReactNode;
 };
 
-export const Layout: React.FC<Props> = ({ children }) => <Container>{children}</Container>;
+export const Layout: React.FC<Props> = ({ children }) => (
+  <Container>{children}</Container>
+);
 
-export const Content: React.FC<Props> = ({ children }) => <Wrapper>{children}</Wrapper>;
+export const Content: React.FC<Props> = ({ children }) => (
+  <Wrapper>{children}</Wrapper>
+);
