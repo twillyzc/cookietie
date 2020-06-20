@@ -11,6 +11,7 @@ import {
   Header,
   RecipesList,
   Footer,
+  Sidebar,
 } from 'components';
 
 const useQuery = () => new URLSearchParams(useLocation().search);
@@ -47,6 +48,7 @@ export const Search: React.FC = () => {
       </Helmet>
       <Layout>
         <Header />
+        <Sidebar />
         <Title>
           <h1>{title}</h1>
         </Title>

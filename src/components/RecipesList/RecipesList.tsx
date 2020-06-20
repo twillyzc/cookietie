@@ -69,7 +69,7 @@ export const RecipesList: React.FC = () => {
                 }}
                 height={window.innerHeight * 4}
                 itemCount={itemCount}
-                itemSize={65}
+                itemSize={350}
                 width={width}
                 style={{ height: '100% !important' }}
                 itemData={{ baseUri, items, isItemLoaded }}

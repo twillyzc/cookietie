@@ -9,14 +9,15 @@ export const Container = styled.main`
     'header'
     'title'
     'content'
-    'footer';
+    'footer'
+    'sidebar';
 
   @media only screen and (min-width: 600px) {
     grid-template-areas:
       'header header header header'
-      '. title title .'
-      '. content content .'
-      '. . . footer';
+      'sidebar title title .'
+      'sidebar content content .'
+      'sidebar . . footer';
     box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.05);
   }
 `;
