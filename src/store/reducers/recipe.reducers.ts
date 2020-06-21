@@ -1,12 +1,25 @@
 import { RECIPE_DATA_SUCCESS } from 'store/actions/recipe.actions';
+import { actionChannel } from 'redux-saga/effects';
 
 const defaultState = {
-  item: {},
+  id: 0,
+  title: '',
+  image: '',
+  instructions: '',
+  readyInMinutes: 0,
+  serving: 0,
+  summary: '',
 };
 
-const setRecipe = (state: any, action: any) => ({
+const setRecipe = (state: any, { payload }: any) => ({
   ...state,
-  item: action.payload,
+  id: payload.id,
+  title: payload.title,
+  image: payload.image,
+  instructions: payload.instructions,
+  readyInMinutes: payload.readyInMinutes,
+  serving: payload.serving,
+  summary: payload.summary,
 });
 
 export const recipeReducer = (state = defaultState, action: any) => {

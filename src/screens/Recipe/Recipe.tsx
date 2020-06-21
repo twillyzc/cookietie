@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { recipeRequest } from 'store/actions/recipe.actions';
 
 export const Recipe: React.FC = () => {
-  const { item }: any = useSelector<any>((state) => state.recipe);
+  const { title }: any = useSelector<any>((state) => state.recipe);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -44,7 +44,7 @@ export const Recipe: React.FC = () => {
         <Title>
           <h1>title</h1>
         </Title>
-        <Content>{isLoading ? 'Loading...' : item?.title || 'fail'}</Content>
+        <Content>{isLoading ? 'Loading...' : title || 'fail'}</Content>
         <Footer />
       </Layout>
     </>
