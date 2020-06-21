@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { Layout, Content, Title, Header, Footer, Sidebar } from 'components';
 import { useParams } from 'react-router-dom';
+
 import { recipeRequest } from 'store/actions/recipe.actions';
+import { Layout, Content, Title, Header, Footer, Sidebar } from 'components';
 
 export const Recipe: React.FC = () => {
   const { title }: any = useSelector<any>((state) => state.recipe);

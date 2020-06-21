@@ -11,7 +11,6 @@ function* fetchRecipe(action: any) {
     fetchUrl,
     `${API_URL}/recipes/${action.payload.id}/information?apiKey=${API_KEY}`
   );
-  console.log(recipe);
 
   yield put(recipeSuccess(recipe, action.meta));
 }

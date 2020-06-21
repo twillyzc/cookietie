@@ -1,5 +1,4 @@
 import { RECIPE_DATA_SUCCESS } from 'store/actions/recipe.actions';
-import { actionChannel } from 'redux-saga/effects';
 
 const defaultState = {
   id: 0,
