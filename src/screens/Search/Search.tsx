@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -23,23 +23,26 @@ export const Search: React.FC = () => {
 
   const query = useQuery().get('query');
 
-  const getRecipes = async (query: string) => {
-    try {
-      setIsLoading(true);
-      await dispatch(recipesRequest(query));
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setIsLoading(false);
-      setTitle(query);
-    }
-  };
+  const getRecipes = useCallback(
+    async (query: string) => {
+      try {
+        setIsLoading(true);
+        await dispatch(recipesRequest(query));
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setIsLoading(false);
+        setTitle(query);
+      }
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     if (query) {
       getRecipes(query);
     }
-  }, []);
+  }, [getRecipes, query]);
 
   return (
     <>
