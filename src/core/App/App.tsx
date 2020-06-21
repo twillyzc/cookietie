@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Home, Search, Recipes } from 'screens';
+import { Home, Search, Recipes, Recipe } from 'screens';
 
 export const App = () => (
   <Router>
@@ -11,6 +11,9 @@ export const App = () => (
       </Route>
       <Route path="/search">
         <Search />
+      </Route>
+      <Route path="/recipe/:id">
+        <Recipe />
       </Route>
       <Route path="/">
         <Home />

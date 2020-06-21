@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 
@@ -34,7 +34,7 @@ export const Search: React.FC = () => {
           e.persist();
           return handleInputChange(e);
         }}
-        onKeyPress={(e) => handleEnterKey(e)}
+        onKeyPress={handleEnterKey}
       />
     </>
   );
