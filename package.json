@@ -19,7 +19,7 @@
     "@types/react-window": "^1.8.2",
     "@types/react-window-infinite-loader": "^1.0.3",
     "@types/styled-components": "^5.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "lodash.debounce": "^4.0.8",
     "react": "^16.13.1",
